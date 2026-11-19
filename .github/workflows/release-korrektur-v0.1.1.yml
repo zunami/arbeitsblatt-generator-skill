@@ -1,0 +1,45 @@
+name: Release v0.1.1 als regulaere Version kennzeichnen
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release-korrektur-v0.1.1.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  release-status:
+    if: github.repository == 'zunami/arbeitsblatt-generator-skill' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Nur prerelease aendern und unveraenderte Daten beweisen
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          endpoint="repos/$GITHUB_REPOSITORY/releases/451063435"
+          before="$(gh api "$endpoint")"
+          printf '%s' "$before" | jq -e '
+            .id == 451063435 and
+            .tag_name == "v0.1.1" and
+            .name == "Arbeitsblatt-Generator Skill 0.1.1 – erste Erprobungsfassung" and
+            .prerelease == true and
+            .draft == false and
+            ([.assets[] | .name] | sort) == ["SHA256SUMS", "skill.zip"] and
+            ([.assets[] | select(.name=="skill.zip") | .digest] | first) ==
+              "sha256:7152cefbdb4beb901fe1ab264e1d50be34649df4857615a5dc8d04e1fc2b13b0"
+          ' >/dev/null
+
+          gh api --method PATCH "$endpoint" -F prerelease=false >/dev/null
+
+          after="$(gh api "$endpoint")"
+          printf '%s' "$after" | jq -e '.prerelease == false and .draft == false' >/dev/null
+
+          before_fixed="$(printf '%s' "$before" | jq -cS '{id, tag_name, name, body, draft, assets: [.assets[] | {id,name,size,digest}], target_commitish}')"
+          after_fixed="$(printf '%s' "$after" | jq -cS '{id, tag_name, name, body, draft, assets: [.assets[] | {id,name,size,digest}], target_commitish}')"
+          test "$before_fixed" = "$after_fixed"
+          echo 'Release v0.1.1 ist regulaer; Titel, Body, Tag, Zielcommit und Assets sind unveraendert.'
