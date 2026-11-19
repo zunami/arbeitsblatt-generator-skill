@@ -1,0 +1,46 @@
+name: Einmaliger Release v0.1.1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release-v0.1.1.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  veroeffentlichen:
+    if: github.repository == 'zunami/arbeitsblatt-generator-skill'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Freigegebene Dateien laden
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Versionsstand und Installationspaket pruefen
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(cat VERSION)" = '0.1.1'
+          test "$(cat arbeitsblatt-generator/VERSION)" = '0.1.1'
+          printf '%s  %s\n' '7152cefbdb4beb901fe1ab264e1d50be34649df4857615a5dc8d04e1fc2b13b0' 'skill.zip' > SHA256SUMS
+          sha256sum --check SHA256SUMS
+          test -s RELEASE_NOTES_v0.1.1.md
+      - name: GitHub-Release mit ZIP und Pruefsumme erstellen
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view v0.1.1 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo '::error::Release v0.1.1 existiert bereits; keine stillschweigende Aenderung.'
+            exit 1
+          fi
+          gh release create v0.1.1 ./skill.zip ./SHA256SUMS \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title 'Arbeitsblatt-Generator Skill 0.1.1 – erste Erprobungsfassung' \
+            --notes-file RELEASE_NOTES_v0.1.1.md \
+            --prerelease
