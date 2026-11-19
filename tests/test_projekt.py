@@ -87,4 +87,33 @@ class Paketbau(unittest.TestCase):
             (folder/'link').symlink_to('nicht_vorhanden')
             with self.assertRaises(ValueError): build.zip_bytes(folder)
 
+class VersionsUndFreigabe(unittest.TestCase):
+    def test_lesbarer_release_titel_und_manueler_trigger(self):
+        wf=(ROOT/'.github/workflows/release.yml').read_text(encoding='utf-8')
+        self.assertIn('workflow_dispatch:',wf)
+        self.assertIn('--title "Version ${RELEASE_VERSION}"',wf)
+        self.assertIn('default: false',wf)
+        self.assertIn('args+=(--prerelease)',wf)
+        self.assertIn('args+=(--latest)',wf)
+        self.assertIn('--notes-file "RELEASE_NOTES_v${RELEASE_VERSION}.md"',wf)
+        self.assertNotIn('\n  push:',wf)
+    def test_unveraenderlichkeit_und_pruefsumme(self):
+        wf=(ROOT/'.github/workflows/release.yml').read_text(encoding='utf-8')
+        self.assertIn('gh release view "$tag"',wf)
+        self.assertIn('Tag existiert bereits',wf)
+        self.assertIn('sha256sum --check SHA256SUMS',wf)
+        self.assertIn('cmp --quiet',wf)
+        self.assertIn('persist-credentials: false',wf)
+    def test_version_ueberall_eindeutig(self):
+        version=(ROOT/'VERSION').read_text(encoding='utf-8').strip()
+        self.assertEqual(version,'0.1.2')
+        self.assertIn('Version **'+version+'**', (ROOT/'README.md').read_text(encoding='utf-8'))
+        self.assertIn('**Paketversion: '+version+'**',(ROOT/'arbeitsblatt-generator/SKILL.md').read_text(encoding='utf-8'))
+        self.assertTrue((ROOT/('RELEASE_NOTES_v'+version+'.md')).exists())
+    def test_fragen_nicht_routinemaessig(self):
+        entry=(ROOT/'arbeitsblatt-generator/SKILL.md').read_text(encoding='utf-8')
+        self.assertEqual(entry.count('## Grundsätze'),1)
+        self.assertIn('Höchstens drei gebündelte',entry)
+        self.assertIn('kein verpflichtender Sechs-Fragen-Dialog',entry)
+
 if __name__=='__main__': unittest.main()

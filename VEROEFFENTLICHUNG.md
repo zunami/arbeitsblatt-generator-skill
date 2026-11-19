@@ -1,33 +1,25 @@
-# Veröffentlichungsleitfaden und Release-Text
+# GitHub-Veröffentlichung und Release-Vorlage
 
-Projektname: **Arbeitsblatt-Generator Skill**
+Projekt: [`zunami/arbeitsblatt-generator-skill`](https://github.com/zunami/arbeitsblatt-generator-skill). Öffentlich; Lizenz MIT im Repository. Eine Veröffentlichung benötigt die ausdrückliche Freigabe des Projektinhabers für **exakte Dateien und vollständigen Text**.
 
-Vorgesehener Repository-Name: `zunami/arbeitsblatt-generator-skill`
+## Etablierter Stand
 
-Sichtbarkeit: öffentlich, erst nach Freigabe des Projektinhabers.
+- **Veröffentlichter Release:** [`v0.1.1`](https://github.com/zunami/arbeitsblatt-generator-skill/releases/tag/v0.1.1), GitHub-Titel **`Version 0.1.1`** (regulär, kein Pre-release).
+- **Installationspaket:** `skill.zip` im Release unter **Assets**, dazu `SHA256SUMS`.
+- Änderungen in `CHANGELOG.md`, technischen Regeln in `VERSIONIERUNG.md` und Installationsanleitung in `INSTALLATION.md` nachlesen.
+- Ein historischer einmaliger Workflow hat `v0.1.1` erzeugt; für neue Versionen **ausschließlich den manuellen Workflow** `.github/workflows/release.yml` nach spezifischer Freigabe verwenden.
 
-Beschreibung:
+## Für jede neue Version vorbereiten
 
-> Deutschsprachiger KI-Skill für schulnahe Arbeitsblätter aus Fotos, neue Übungen mit Lösungen und Handschriftentfernung. Schwerpunkt Mathematik und Österreich.
+1. Versionsnummer `X.Y.Z` konsistent in `VERSION`, `arbeitsblatt-generator/VERSION`, `SKILL.md` und README setzen.
+2. `CHANGELOG.md` aktualisieren und eine vollständige, zur Version passende `RELEASE_NOTES_vX.Y.Z.md` erstellen. Die Version `0.1.1` und ihre Assets unverändert lassen.
+3. `python tools/pruefen.py` und `python tools/paket_bauen.py` durchführen. Das neue Paket, die ZIP-Prüfsumme, Abweichungen und tatsächlich durchgeführte Tests dokumentieren; kein ungeprüftes Fertigversprechen.
+4. **Exakten Releasetitel `Version X.Y.Z` und den gesamten Beschreibungsinhalt**, Zielrepository/Tag und Asset-Hash zur ausdrücklichen Nutzerfreigabe vorlegen. Eine generelle Zustimmung zum Projekt ist keine pauschale Freigabe beliebiger zukünftiger Veröffentlichungstexte.
+5. Nur nach dieser Freigabe auf GitHub im Repository den Workflow **„Release aus geprüfter Fassung“** über **Actions → Run workflow** mit der genauen Versionsnummer starten. Status `prerelease` nur bei ausdrücklichem Wunsch aktivieren.
+6. Nach dem Lauf die Release-Detailseite und die `/releases/latest`-Anzeige für reguläre Releases, die Assets und den tatsächlichen SHA-256-Wert prüfen. Bei Fehlern nicht blind wiederholen.
 
-Vorgesehener erster Tag: `v0.1.1`.
+## Inhalt der Beschreibungen
 
-Releasetitel: **Arbeitsblatt-Generator Skill 0.1.1 – erste Erprobungsfassung**
+Eine vollständige Release-Beschreibung erklärt in verständlichem Deutsch: Zweck und Funktionsstand, konkrete Änderungen dieser Version, Installationshinweise, Grenzen der Tests, Versionierungsregeln, Download `skill.zip` sowie die Prüfsumme. Persönliche Details, Schulbuchseiten, identifizierbare Schul-/Kinderangaben und Zugangsdaten gehören nicht in die Veröffentlichung.
 
-## Release-Text
-
-Ich habe diesen Skill mit ChatGPT entwickelt, um meine Tochter mit schulnahen Übungen zu unterstützen. Diese Fassung enthält die bestehenden Fachregeln und Hilfsskripte sowie deutschsprachige Anleitungen zur Nutzung.
-
-Schwerpunkt ist Mathematik: neue Aufgaben aus Fotos, gemischte Serien und passende separate Lösungen. Ein eigener Modus soll handschriftliche Einträge entfernen, ohne gedruckte Aufgaben oder Zahlen zu verändern. Deutsch und Englisch sind enthalten, aber mangels ausreichender praktischer Erprobung experimentell.
-
-Das Installationspaket heißt `skill.zip`; `SHA256SUMS` enthält seine Prüfsumme. Bitte Voraussetzungen, Datenschutz, Rechtehinweise und den dokumentierten Prüfumfang beachten. Lokale Skripttests sind keine Garantie für korrekte KI-Ausgaben oder ein unverändertes bereinigtes Foto.
-
-Kein eigenständiges Programm und kein offizielles OpenAI- oder Schulangebot. Aufgaben und Lösungen vor dem Üben prüfen. Rückmeldungen mit eigenen anonymisierten Beispielaufgaben sind willkommen.
-
-Von zunami mit Unterstützung von ChatGPT entwickelt.
-
-## Freigabe und Nachprüfung
-
-Vor jeder Veröffentlichung den konkreten Dateistand, Lizenzwahl, Paketprüfsumme, Zielrepository, Sichtbarkeit und vollständigen Release-Text vom Projektinhaber freigeben lassen. Geänderte Inhalte erfordern eine neue Freigabe. Keine automatische Veröffentlichung oder Lizenzwahl durch den KI-Agenten.
-
-Nach der Veröffentlichung Dateien und Release erneut abrufen und gegen den freigegebenen Stand prüfen. Keinen erfolgreichen Plattform-Import und keine laufende Überwachung allein aus einer Paketbereitstellung ableiten.
+**Für die noch nicht veröffentlichte Version `0.1.2`:** Der Entwurf befindet sich in `RELEASE_NOTES_v0.1.2.md`. Er wird erst nach Inhaltsfreigabe veröffentlicht; die Datei im Quellrepository allein ist keine Veröffentlichung als GitHub-Release.

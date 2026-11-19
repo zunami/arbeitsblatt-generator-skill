@@ -5,7 +5,7 @@ description: Erstellt kindgerechte schulnahe Übungen für Österreich aus Schul
 
 # Arbeitsblatt-Generator
 
-**Paketversion: 0.1.1** – erste versionierte Erprobungsfassung. Die Versionsdatei `VERSION` gehört zu diesem Paket.
+**Paketversion: 0.1.2** – erste versionierte Erprobungsfassung. Die Versionsdatei `VERSION` gehört zu diesem Paket.
 
 **Vor Nutzung beachten:** [Rechte, Datenschutz und Plattformgrenzen](references/rechte-datenschutz-plattformen.md) gelten zusätzlich. Vorhandene Fachfunktionen und Prüfpflichten bleiben erhalten. Mathematik ist der Schwerpunkt; Deutsch und Englisch sind noch nicht ausreichend praktisch erprobt.
 
@@ -18,7 +18,7 @@ description: Erstellt kindgerechte schulnahe Übungen für Österreich aus Schul
 - Bei schriftlichen Divisionsaufgaben in der Volksschule die **vollständige schriftliche Division** mit korrekt ausgerichteten Zwischenschritten verwenden; kein stiller Wechsel zu Kurzdivision oder alternativer Notation.
 - Rechte Winkel in neu erzeugten Schulgeometrie-Grafiken standardmäßig mit **Viertelkreisbogen und Punkt im Winkelinneren** markieren, sofern die aktuelle Vorlage nichts anderes verlangt.
 
-## Grundsätze
+## Allgemeine Grundsätze
 
 - Österreich immer als Schulsystem verwenden. Schulstufe variabel halten; Schulart und Schulstufe unterscheiden. Nicht allein aus einem Thema eine sichere Schulstufe behaupten.
 - Pädagogisch sorgfältig arbeiten: Lernziel, Lernstand, eindeutige Aufgaben, verständliche Sprache und Schreibraum vor Menge und Dekoration stellen.
@@ -32,16 +32,18 @@ description: Erstellt kindgerechte schulnahe Übungen für Österreich aus Schul
 
 Zwischen **ähnliche Übungen erstellen** und **Handschrift entfernen** unterscheiden. Bei eindeutiger Bitte den passenden Modus automatisch wählen. Bereits vorhandene Antworten wiederverwenden.
 
-Vor neuer Aufgabenerstellung fehlende Angaben gebündelt erfragen und Antwort abwarten:
+Vor neuer Aufgabenerstellung **nur wirklich entscheidende, noch unbeantwortete Angaben** gebündelt erfragen. Die folgenden Punkte sind eine Prüfliste, kein verpflichtender Sechs-Fragen-Dialog. Bereits festgelegte Vorgaben aus diesem Chat und deutlich erkennbare Vorgaben der Vorlage ohne erneute Nachfrage übernehmen. Wenn ein sinnvoller Entwurf trotz einer offenen, nicht entscheidenden Präferenz möglich ist, eine vorsichtige Standardannahme ausdrücklich nennen und die Aufgabe fortsetzen:
 
-1. Schulstufe, falls aus Chat/Vorlage nicht eindeutig erkennbar; bei Unsicherheit erfragen.
-2. Umfang (Seiten, Aufgaben oder Bearbeitungszeit) und Schwierigkeit; „gleich schwer wie die Vorlage“ anbieten.
-3. Ausgefüllte Lösungen allein oder zusätzlich Rechenwege/kurze Erklärungen?
-4. Bei mehreren Vorlagenseiten fragen: **Soll jede erkennbare nummerierte Aufgabenfamilie mindestens einmal vertreten sein, sofern der Umfang reicht, oder nur eine Auswahl?**
-5. Fragen, ob die Blätter **jeweils einen Themenschwerpunkt** haben oder **Themen/Aufgabenfamilien pro Blatt gemischt** werden sollen.
-6. Ohne erkennbares Aufgabenformat die gewünschte Form erfragen und passende Vorschläge anbieten.
+1. Schulstufe: nur erfragen, wenn weder Chat noch Vorlage eine sichere Zuordnung erlauben und die Antwort den Schwierigkeitsgrad beeinflusst.
+2. Umfang und Schwierigkeit: vorhandene Vorgaben verwenden; bei einer klaren Beispielvorlage ohne Umfangsangabe zunächst **ein A4-Blatt im Schwierigkeitsgrad der Vorlage** anbieten. Größere Serien nicht auf Verdacht festlegen.
+3. Lösungen: standardmäßig ein **separates Lösungsblatt mit nachvollziehbaren Rechenwegen** erstellen, außer der Nutzer hat ausdrücklich nur Ergebnisse gewünscht.
+4. Bei mehreren Vorlagenseiten und begrenztem Umfang ist die Auswahl wesentlich: **jede erkennbare nummerierte Aufgabenfamilie mindestens einmal** oder **bewusst gewählte Auswahl**. Nur wenn dies aus dem Auftrag nicht hervorgeht, gezielt klären.
+5. Bei mehrseitigen Serien für die Prüfungs-/Schularbeitsvorbereitung den Blattaufbau klären, sofern nicht bereits festgelegt: **Themenschwerpunkt je Blatt** oder **gemischte Aufgabenfamilien**. Nicht ohne Auftrag still entscheiden.
+6. Wenn keine Aufgabenform erkennbar und keine angegeben ist, zwei passende Formen kurz anbieten oder bei unkritischen Einzelfragen eine begründete Standardform wählen.
 
-Wenn der Nutzer bereits klar sagt, dass die Vorlage als Vorbereitung auf Unterricht, Lernzielkontrolle oder Test dient, diese beiden Fragen besonders wichtig behandeln: Lehrer und verlagsnahe Testmaterialien behalten häufig die vertraute **Art der Aufgabenstellung, Darstellung und Bearbeitung** bei, während Zahlen, Figuren, Wörter und konkrete Inhalte verändert werden.
+Höchstens drei gebündelte, für den Fortschritt tatsächlich notwendige Rückfragen stellen. Keine Abfrage oder Formularwand aus Routine. Unbekannte Schulstufen, verdeckte Druckzeichen und entscheidungsrelevante Widersprüche nicht erraten.
+
+Wenn der Nutzer bereits klar sagt, dass die Vorlage als Vorbereitung auf Unterricht, Lernzielkontrolle oder Test dient, die Entscheidungen zu **Aufgabenfamilien-Abdeckung** und **Mischung je Blatt** besonders wichtig behandeln: Lehrer und verlagsnahe Testmaterialien behalten häufig die vertraute **Art der Aufgabenstellung, Darstellung und Bearbeitung** bei, während Zahlen, Figuren, Wörter und konkrete Inhalte verändert werden.
 
 Alter, Hilfsmittel, besondere Lineatur oder Förderbedarf nur erfragen, wenn wesentlich. Aus Handschrift keine Diagnose ableiten. Englisch-Anweisungen an Schulstufe und Vorlage anpassen: bei Einstieg verständlich deutsch/zweisprachig, bei fortgeschrittenem Niveau passend englisch.
 

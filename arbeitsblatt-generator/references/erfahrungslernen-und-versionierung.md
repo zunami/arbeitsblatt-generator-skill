@@ -16,5 +16,14 @@
 - Für Rasterkästchen niemals pauschal „Kacheln“ verwenden. Bundesdeutsche und österreichische Schulformulierungen differenziert redigieren.
 - Wenn Nutzer mehr Logik oder bessere GUI verlangt, tatsächliche PDF-Bedienbarkeit verbessern: verständliche Überschriften, eindeutige Nummerierung, Schreibraum, Rasterpräzision, visuelle Abwechslung und getrennte Lösungen. Keine Web-UI vortäuschen.
 
+## Wiederverwendbare Erkenntnisse aus GitHub-Veröffentlichungen
+
+- Für öffentliche Releases einen **knappen sichtbaren Titel** wie `Version X.Y.Z` von der **ausführlichen Beschreibung** trennen. Unterschiedliche Oberflächen der Plattform separat kontrollieren: Release-Liste, Detailseite, Anzeige „Latest“, Tag und Download unter „Assets“.
+- Den Status `prerelease` nur nach ausdrücklicher Entscheidung setzen, nicht automatisch aus `0.x` oder „Erprobungsphase“ ableiten. Ein fachlich experimenteller Inhalt kann als regulärer GitHub-Release erscheinen.
+- Ein GitHub-Tag allein ist kein Release und eine Datei im Repository kein Release-Anhang. Abschluss erst nach erneuter Prüfung der veröffentlichten Asset-Namen, SHA-256-Werte und des vollständigen Wortlauts melden.
+- Bei fehlender direkter Release-API eine **einmalige, geprüfte Veröffentlichung über GitHub Actions** nur mit ausdrücklicher Genehmigung des konkreten Inhalts vorsehen; keine neuen Token anfordern, Token-Rechte klein halten, bei Timeouts vor jedem Wiederholungsversuch den tatsächlichen Plattformstand lesen.
+- Eine Korrektur einzelner Release-Metadaten (z. B. Titel oder Pre-release-Flag) darf keine ZIP-Dateien, Tag-Ziele oder bestehende Release-Texte ändern. Korrekturwirkung und Nebenwirkungsfreiheit getrennt verifizieren.
+- Zukunftsworkflows versionunabhängig halten und nur nach manuell bestätigter Release-Freigabe auslösen. Bereits veröffentlichte Pakete nicht still überschreiben.
+
 ## Prüfbericht für Skill-Updates
 Kurz ausweisen: Ausgangsbasis, erhaltene Dateien/Funktionen, neue Dateien, veränderte Dateien, tatsächlich ausgeführte Tests, verbleibende Risiken und Status der Installation.

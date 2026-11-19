@@ -10,7 +10,7 @@ Die gebündelten Rechen- und Planungsskripte verwenden die Python-Standardbiblio
 
 ## In ChatGPT
 
-1. Unter den veröffentlichten GitHub-Releases die Datei `skill.zip` der gewünschten Version laden. Nicht die automatisch erzeugte Quellcode-ZIP mit dem Installationspaket verwechseln. Solange noch kein Release veröffentlicht ist, ist der vorbereitete ZIP-Anhang separat zu beziehen oder lokal zu bauen.
+1. Unter den [GitHub-Releases](https://github.com/zunami/arbeitsblatt-generator-skill/releases) die Datei `skill.zip` der gewünschten Version unter **Assets** laden. Nicht die automatisch erzeugte Quellcode-ZIP mit dem Installationspaket verwechseln. Eine noch nicht freigegebene neue Version ist kein veröffentlichter Release.
 2. In einem Konto mit verfügbaren Skills **Plugins → Skills → Erstellen → Von deinem Computer hochladen** öffnen und das Paket auswählen.
 3. Plattformprüfung und gegebenenfalls erforderliche Freigaben abwarten. Installation ist erst nach Bestätigung durch die Plattform erfolgt.
 4. Eine nicht sensible, selbst erstellte Beispielaufgabe ausprobieren. Erst danach eigene Vorlagen mit geklärten Rechten verwenden.

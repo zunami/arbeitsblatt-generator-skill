@@ -1,5 +1,13 @@
 # Versionsverlauf
 
+## 0.1.2 – in Vorbereitung, nicht veröffentlicht
+
+- Fragenablauf im Skill konkretisiert: fehlende Angaben nur bei tatsächlichem Entscheidungsbedarf erfragen; keine routinemäßige Sechs-Fragen-Wand.
+- Doppelten Abschnittstitel „Grundsätze“ bereinigt; Arbeitsmodi, österreichische Fachvorgaben, Rechenprüfung und Fachreferenzen erhalten.
+- Release-Prozess auf knappen Titel `Version X.Y.Z` und ausführlichen Body umgestellt; Pre-release nur nach ausdrücklichem Wunsch.
+- Versionen, Dokumentation, Downloadhinweise und GitHub-Workflow vereinheitlicht; künftige Releases nur nach manuell erteilter, konkreter Text- und Paketfreigabe.
+- Regressionstests für Release-Konventionen und Frageleitfaden ergänzt; noch keine Live-Tests für PDF-Bildqualität, Bildbereinigung oder Skill-Installation durchgeführt.
+
 ## 0.1.1 - 19.11.2026
 
 Korrekturfassung des noch nicht auf GitHub veröffentlichten Pakets 0.1.0 nach Freigabe der rechtlichen Textüberarbeitung.

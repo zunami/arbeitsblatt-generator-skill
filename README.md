@@ -2,7 +2,7 @@
 
 **Neue schulnahe Übungen aus Fotos erstellen – mit passenden Lösungsblättern.**
 
-Version **0.1.1** · frühe Erprobungsfassung · Schwerpunkt Mathematik · österreichischer Schulkontext
+Version **0.1.2** · frühe Erprobungsfassung · Schwerpunkt Mathematik · österreichischer Schulkontext
 
 ## Warum ich diesen Skill gebaut habe
 

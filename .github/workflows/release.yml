@@ -1,0 +1,91 @@
+name: Release aus gepruefter Fassung
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Freigegebene Version X.Y.Z (Beispiel 0.1.2)'
+        type: string
+        required: true
+      prerelease:
+        description: 'Nur bei ausdruecklich vereinbarter Vorabversion aktivieren'
+        type: boolean
+        required: true
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-publish
+  cancel-in-progress: false
+
+jobs:
+  pruefen-und-veroeffentlichen:
+    if: github.repository == 'zunami/arbeitsblatt-generator-skill' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      RELEASE_VERSION: ${{ inputs.version }}
+      RELEASE_PRERELEASE: ${{ inputs.prerelease }}
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Freigegebenen Repository-Stand laden
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Python bereitstellen
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Version, Dateien und Testpaket pruefen
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$RELEASE_VERSION" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]
+          test "$(cat VERSION)" = "$RELEASE_VERSION"
+          test "$(cat arbeitsblatt-generator/VERSION)" = "$RELEASE_VERSION"
+          test -f "RELEASE_NOTES_v${RELEASE_VERSION}.md"
+          test -s "RELEASE_NOTES_v${RELEASE_VERSION}.md"
+          python tools/paket_bauen.py
+          cmp --quiet "dist/v${RELEASE_VERSION}/skill.zip" skill.zip
+          (cd "dist/v${RELEASE_VERSION}" && sha256sum --check SHA256SUMS)
+      - name: Freigegebenen Release einmalig publizieren
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="v${RELEASE_VERSION}"
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo '::error::Release bereits vorhanden: keine Aenderung alter Assets oder Texte.'
+            exit 1
+          fi
+          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" >/dev/null 2>&1; then
+            echo '::error::Tag existiert bereits, aber kein Release: manuell pruefen.'
+            exit 1
+          fi
+          args=()
+          if [ "$RELEASE_PRERELEASE" = true ]; then args+=(--prerelease); else args+=(--latest); fi
+          gh release create "$tag" "dist/v${RELEASE_VERSION}/skill.zip" "dist/v${RELEASE_VERSION}/SHA256SUMS" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "Version ${RELEASE_VERSION}" \
+            --notes-file "RELEASE_NOTES_v${RELEASE_VERSION}.md" \
+            "${args[@]}"
+          # Nachkontrolle: Titel, Text, Status, Dateinamen und Asset-Digests.
+          manifest="dist/v${RELEASE_VERSION}/SHA256SUMS"
+          expected_sha="$(awk '$2 == "skill.zip" {print $1}' "$manifest")"
+          release_json="$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$tag")"
+          printf '%s' "$release_json" | jq -e \
+            --arg title "Version ${RELEASE_VERSION}" \
+            --arg sha "sha256:${expected_sha}" \
+            --argjson pre "$RELEASE_PRERELEASE" '
+              .name == $title and .draft == false and
+              .prerelease == $pre and
+              ([.assets[].name] | sort) == ["SHA256SUMS", "skill.zip"] and
+              ([.assets[] | select(.name == "skill.zip") | .digest] | first) == $sha
+            ' >/dev/null
+          printf '%s' "$release_json" | jq -r .body > release-body-check.md
+          cmp --quiet "RELEASE_NOTES_v${RELEASE_VERSION}.md" release-body-check.md
+          echo "Release $tag wurde mit freigegebener Beschreibung und Assets geprueft."
