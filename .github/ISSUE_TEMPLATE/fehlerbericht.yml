@@ -1,0 +1,41 @@
+name: Fehler melden
+description: Einen nachvollziehbaren Fehler ohne sensible Daten beschreiben.
+title: "[Fehler]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Bitte Deutsch verwenden und nur ein Problem melden. Keine echten Schulblätter, Kinderfotos, Namen oder Schulbuchscans anhängen."
+  - type: input
+    id: version
+    attributes:
+      label: Skill-Version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: umgebung
+    attributes:
+      label: KI-Umgebung und verwendete Werkzeuge
+    validations:
+      required: true
+  - type: textarea
+    id: beispiel
+    attributes:
+      label: Selbst erstelltes anonymisiertes Beispiel und Schritte
+    validations:
+      required: true
+  - type: textarea
+    id: ergebnis
+    attributes:
+      label: Erwartetes und tatsächliches Ergebnis
+    validations:
+      required: true
+  - type: checkboxes
+    id: pruefung
+    attributes:
+      label: Vor dem Absenden
+      options:
+        - label: Ich habe vorhandene Issues geprüft.
+          required: true
+        - label: Mein Beitrag enthält keine privaten Kinderdaten oder unberechtigt veröffentlichten Fremdmaterialien.
+          required: true

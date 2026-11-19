@@ -1,0 +1,15 @@
+interface:
+  display_name: Arbeitsblatt-Generator Skill
+  short_description: Schulnahe Übungen und geprüfte Lösungen als A4-PDF
+  default_prompt: Nutze $arbeitsblatt-generator, um aus meinen Schulvorlagen kindgerechte
+    Übungen mit geprüften Lösungen zu erstellen oder handschriftliche Einträge zu
+    entfernen.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

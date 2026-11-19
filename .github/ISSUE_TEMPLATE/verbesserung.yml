@@ -1,0 +1,19 @@
+name: Verbesserung vorschlagen
+description: Eine Aufgabenart, Lernhilfe oder Verbesserung beschreiben.
+title: "[Vorschlag]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Bitte nur eigene anonymisierte Beispiele und deutschsprachige Beschreibungen verwenden. Ein Vorschlag ist noch keine getestete Funktion."
+  - type: textarea
+    id: ziel
+    attributes:
+      label: Lernziel und gewünschte Verbesserung
+    validations:
+      required: true
+  - type: textarea
+    id: beispiel
+    attributes:
+      label: Eigenes Beispiel und bisherige Erfahrungen
+    validations:
+      required: true

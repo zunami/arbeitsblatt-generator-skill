@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.DS_Store
+Thumbs.db
+.env
+.env.*
+dist/
+private/
+uploads/
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.heic
