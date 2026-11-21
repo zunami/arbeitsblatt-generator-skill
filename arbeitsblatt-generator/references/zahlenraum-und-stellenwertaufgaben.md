@@ -127,3 +127,8 @@ Bei `division_written` zusaetzlich jeden einzelnen Zwischenwert als
 `partial`, `quotient_digit`, `subtracted` und `remainder` pruefen.
 Nullen im Quotienten muessen als eigene Zwischenstufe erhalten bleiben;
 die auf dem Papier erlaubte Notationsvariante weiterhin an die Vorlage anpassen.
+
+
+## Pflichtform der schriftlichen Division im Loesungs-PDF
+
+`division_written` allein sichert Zahlen, nicht ein benutzbares Rechenbild. Nach dem numerischen Check fuer jede schriftliche Division `scripts/schriftliche_division.py` einsetzen und das vertikale Rechenverfahren mit Restmitnahme aus [schriftliche-division-rechenwege.md](schriftliche-division-rechenwege.md) beachten. **Jede** Teilzahl, Produktzeile, Subtraktion und heruntergeholte Ziffer untereinander; Endrest unten und ggf. hinter dem Ergebnis.

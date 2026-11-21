@@ -5,7 +5,7 @@ description: Erstellt kindgerechte schulnahe Übungen für Österreich aus Schul
 
 # Arbeitsblatt-Generator
 
-**Paketversion: 0.1.2** – erste versionierte Erprobungsfassung. Die Versionsdatei `VERSION` gehört zu diesem Paket.
+**Paketversion: 0.1.3** – erste versionierte Erprobungsfassung. Die Versionsdatei `VERSION` gehört zu diesem Paket.
 
 **Vor Nutzung beachten:** [Rechte, Datenschutz und Plattformgrenzen](references/rechte-datenschutz-plattformen.md) gelten zusätzlich. Vorhandene Fachfunktionen und Prüfpflichten bleiben erhalten. Mathematik ist der Schwerpunkt; Deutsch und Englisch sind noch nicht ausreichend praktisch erprobt.
 
@@ -15,7 +15,7 @@ description: Erstellt kindgerechte schulnahe Übungen für Österreich aus Schul
 
 - **Österreichisches Sprach- und Darstellungsprofil ist verbindlich.** Vor jeder neuen Aufgabe [oesterreichische-schulsprache.md](references/oesterreichische-schulsprache.md) lesen; bei Mathematik zusätzlich [oesterreichische-matheverfahren.md](references/oesterreichische-matheverfahren.md). Die vom Nutzer gelieferten Muster für schriftliche Division und Winkelmarkierung haben Vorrang vor allgemeinen Standardgrafiken.
 - **Nicht blind eindeutschen oder österreichisieren:** schulisch fachrichtige Begriffe verwenden, Nutzer-/Schulbuchnotation respektieren, widersprüchliche Begriffe kontextabhängig prüfen. Rasterzellen beim Rechnen und Zeichnen als **Kästchen** bezeichnen, nicht als Kacheln.
-- Bei schriftlichen Divisionsaufgaben in der Volksschule die **vollständige schriftliche Division** mit korrekt ausgerichteten Zwischenschritten verwenden; kein stiller Wechsel zu Kurzdivision oder alternativer Notation.
+- Bei schriftlichen Divisionsaufgaben in der Volksschule die **vollständige schriftliche Division** mit korrekt ausgerichteten Zwischenschritten verwenden; kein stiller Wechsel zu Kurzdivision oder alternativer Notation. **Verbindlicher Pflichtschritt:** [schriftliche-division-rechenwege.md](references/schriftliche-division-rechenwege.md) lesen, jede Division untereinander notieren und mit `scripts/schriftliche_division.py` inklusive Layout-/Rest-Prüfung erzeugen. Ergebnisse und lose Teilgleichungen nebeneinander gelten ausdrücklich NICHT als fertige Lösung.
 - Rechte Winkel in neu erzeugten Schulgeometrie-Grafiken standardmäßig mit **Viertelkreisbogen und Punkt im Winkelinneren** markieren, sofern die aktuelle Vorlage nichts anderes verlangt.
 
 ## Allgemeine Grundsätze
@@ -145,6 +145,7 @@ Dateien und wesentliche Besonderheiten kurz nennen. Prüfprotokolle nicht auf Ki
 
 - Bei Zahlvorstellungen, Nachbarzahlen, Zahlenfolgen, Ordnungen und Stellenwertaufgaben zusätzlich [zahlenraum-und-stellenwertaufgaben.md](references/zahlenraum-und-stellenwertaufgaben.md) lesen; auch die zugehörigen automatischen Prüftypen einsetzen. Lehrerkorrekturen sind Hinweise, keine Soll-Lösungen.
 - Für Mathematik immer [mathematik.md](references/mathematik.md) zusätzlich lesen. Bei Rechenaufgaben auch `scripts/math_quality_gate.py` mit strukturierter Aufgabenliste einsetzen; das bestehende `scripts/worksheet_logic.py` bleibt erhalten.
+- Bei **schriftlicher Division** zusätzlich zwingend `scripts/schriftliche_division.py` für Restmitnahme, vertikale Darstellung und die Rechenweg-Zeilen verwenden; mit `scripts/test_schriftliche_division.py` und dem prüfbaren Schrittprotokoll gegenprüfen. Die Lösung muss jedes Zwischenprodukt, jede Subtraktion, die heruntergeholte Ziffer, alle Quotientennullen und den Endrest enthalten.
 - Für Deutsch immer [deutsch.md](references/deutsch.md) zusätzlich lesen.
 - Für Englisch immer [englisch.md](references/englisch.md) zusätzlich lesen.
 - Für Druckaufbereitung zusätzlich [layout-system.md](references/layout-system.md) lesen. Layout als papierbasierte Benutzeroberfläche verstehen: Orientierung, Arbeitsanweisung, Schreibfläche und Rückmeldung sind funktionale Elemente, keine Dekoration.

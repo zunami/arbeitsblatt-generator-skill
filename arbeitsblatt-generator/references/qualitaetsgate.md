@@ -8,3 +8,5 @@
 5. **Ausgabe**: Aufgaben und Lösungen aus derselben Datenbasis, IDs/Nummern stimmen überein, Rechenweg und Erklärung korrekt.
 6. **Layout**: Alle Seiten gerendert, visuell geprüft, Schwarz-Weiß, Ränder und Handschriftplatz ausreichend, keine Überlappungen.
 7. **Abschluss**: Nur tatsächlich ausgeführte Prüfungen berichten. Offene Punkte transparent benennen; unvollständige/ungeprüfte Dateien nicht als endgültig bezeichnen.
+
+8. **Schriftliche Division = eigenes Layout-Gate:** Jede zugehoerige Loesung enthaelt eine Kopfzeile und pro Quotientenziffer zwei vertikal ausgerichtete Zeilen (Produkt/Minus, Rest bzw. heruntergeholte Teilzahl). `scripts/schriftliche_division.py` prueft `Rest * 10 + naechste Ziffer` und die geometrische Stellenlage. Loesungen mit waagerecht verteilten Teilgleichungen fallen durch, auch wenn das Ergebnis richtig ist. Zu wenig Kaestchen: getrennte Rechenwegseite, niemals gekuerzter Rechenweg.

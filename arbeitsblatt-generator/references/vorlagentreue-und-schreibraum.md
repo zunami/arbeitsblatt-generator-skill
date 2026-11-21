@@ -50,3 +50,8 @@ Die längste plausible Antwort handschriftlich simulieren, nicht die Druckbreite
 2. Layout- und Abdeckungsprüfung: jede PDF-Seite in lesbarer Größe ansehen, Originalfamilien rückvergleichen, Handschrift-Platzprobe, korrekte Maße, Überlagerungen, Leerflächen, Schwarz-Weiß-Druck und Seitenabwechslung prüfen.
 
 Gleiche Aufgaben, IDs, Nummerierung und Positionen in Kinder- und Lösungsfassung verwenden. „Ohne Erklärungen“ bedeutet keine didaktischen Erläuterungsseiten; verlangte Rechnungen, Proben und Antwortsätze trotzdem ausfüllen. Nach jeder Änderung betroffene Prüfungen wiederholen.
+
+
+### Schriftliche Division: Antwortflaeche nicht nach nur einem Ergebnis bemessen
+
+Im Rechenkaestchen mindestens `1 + 2*N` Zeilen fuer N Teilungen reservieren: Kopfzeile, N Produkt-/Minus-Zeilen und N Zeilen fuer Rest bzw. naechste Teilzahl (die letzte fuer den Endrest). Zwischenreste stehen untereinander, naechste Ziffer senkrecht aus der Ausgangszahl herunterholen. Eine vierstellige Division benoetigt bis zu 9 Zeilen oder mehr, nicht nur vier. Bei Platzmangel Aufgaben vor Druck anders verteilen oder eine eindeutig zugeordnete Rechenwegseite anhaengen. Verbindlicher Renderer: `scripts/schriftliche_division.py`.

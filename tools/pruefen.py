@@ -64,6 +64,7 @@ def main() -> int:
         env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1')
         commands = [
             [sys.executable, str(SKILL/'scripts/test_math_quality_gate.py')],
+            [sys.executable, str(SKILL/'scripts/test_schriftliche_division.py')],
             [sys.executable, '-m', 'unittest', 'discover', '-s', str(ROOT/'tests'), '-v'],
         ]
         for command in commands:

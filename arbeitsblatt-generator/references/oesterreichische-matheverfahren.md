@@ -20,3 +20,8 @@
 
 ## Vorrang und Grenzen
 Diese Vorgaben sind für die konkrete österreichische Volksschulvorlage verbindlich, keine Behauptung, dass alle österreichischen Schulen ausschließlich diese Schreibweise verwenden. Weicht eine neue Lehrervorlage ausdrücklich ab, deren Schreibweise übernehmen und Abweichungen nicht eigenmächtig mischen.
+
+
+## Verbindliche Nachbesserung: Loesung untereinander (21.11.2026)
+
+Bei schriftlicher Division nie Zwischenschritte nebeneinander als Kurzgleichungen drucken. Die Lehrerloesung muss Produkt, Minuszeichen, Linie, Zwischendifferenz, heruntergeholte naechste Ziffer und weitergerechnete Teilzahl auf senkrecht ausgerichteten Rasterzeilen zeigen. Zwischenreste sind Teil des Rechenwegs, nicht nur das letzte Wort 'Rest'. Nullen im Quotienten mitschreiben. Der letzte Rest bleibt sichtbar. Im VS-4-Profil mit Rest **keine stillschweigende Dezimalfortsetzung**. Verbindliche technische Umsetzung und Tests: [schriftliche-division-rechenwege.md](schriftliche-division-rechenwege.md).

@@ -106,7 +106,7 @@ class VersionsUndFreigabe(unittest.TestCase):
         self.assertIn('persist-credentials: false',wf)
     def test_version_ueberall_eindeutig(self):
         version=(ROOT/'VERSION').read_text(encoding='utf-8').strip()
-        self.assertEqual(version,'0.1.2')
+        self.assertEqual(version,'0.1.3')
         self.assertIn('Version **'+version+'**', (ROOT/'README.md').read_text(encoding='utf-8'))
         self.assertIn('**Paketversion: '+version+'**',(ROOT/'arbeitsblatt-generator/SKILL.md').read_text(encoding='utf-8'))
         self.assertTrue((ROOT/('RELEASE_NOTES_v'+version+'.md')).exists())

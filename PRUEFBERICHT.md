@@ -51,3 +51,11 @@ Der zusammenhängende Ersatzentwurf der rechtlichen Hinweise wurde in beide `REC
 Erneut ausgeführt: Standard-Skill-Validator; bestehendes Mathe-Regressionsskript mit 3 ursprünglichen und 3 erweiterten Testgruppen; alle 15 Projekttests; Versions-, Struktur-, Syntax- und lokale Verweisprüfung. Alle genannten Prüfungen bestanden. Diese Ergebnisse belegen keine vollständige Arbeitsblatt-, Bildbereinigungs- oder Rechtsprüfung.
 
 Nicht ausgeführt: GitHub-Veröffentlichung, GitHub-CI, Plattforminstallation und neue PDF-/Bildbereinigungsabnahme. Betreiberidentität, privater Kontaktweg und tatsächlicher Umgang mit Feedbackdaten wurden nicht erfunden oder als geklärt ausgegeben. Die bisherige Fassung 0.1.0 bleibt als unverändertes Ausgangsartefakt erhalten.
+
+## Lokale Ergänzungsprüfung Version 0.1.3 – 21.11.2026
+
+- Das aus den 30 Skill-Dateien reproduzierbar gebaute ZIP wurde bytegleich mit der ausdrücklich freigegebenen Datei abgeglichen; SHA-256: `87ca401a0d58e517045af790f7ed6780a69491fe9ed681e23fdc130cb3233119`.
+- `scripts/test_math_quality_gate.py`: 3 ursprüngliche und 3 erweiterte Testgruppen bestanden.
+- `scripts/test_schriftliche_division.py`: 1.000 zufällige Beispiele, acht Referenzfälle, Renderer- und Negativprüfungen bestanden.
+- Alle 30 Skill-Dateien wurden auf ihr Git-Blob-SHA geprüft; die unveränderten Dateien entsprechen den bisherigen Repository-Objekten, die geänderten dem vorbereiteten Paket.
+- Keine vollständige praktische Abnahme sämtlicher Arbeitsblätter, Bildbereinigung oder Zielplattforminstallation. GitHub-CI und Release-Asset-Abgleich sind separat nach Veröffentlichung zu prüfen.

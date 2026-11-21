@@ -1,5 +1,14 @@
 # Versionsverlauf
 
+## 0.1.3 – 21.11.2026
+
+- Schriftliche Division mit stellengerecht untereinander stehenden Teilschritten, Subtraktionen, Zwischenresten und heruntergeholten Ziffern.
+- Nullstellen im Quotienten und letzter Rest werden korrekt behandelt; die Schulvorlage bestimmt die Notation.
+- Neuer Vektor-Kästchenraster-Renderer mit Platzprüfung und Regressionstests für vollständige Rechenwege.
+- Bisherige Fachmodule und Arbeitsmodi bleiben erhalten; zusätzliches Stift-Symbol gemäß ausdrücklicher Freigabe übernommen.
+- Lokal bestanden: 1.000 Zufallsbeispiele, acht Referenzfälle sowie Render- und Negativprüfungen. Praktische Gesamt-/Plattformabnahme weiterhin offen.
+
+
 ## 0.1.2 – in Vorbereitung, nicht veröffentlicht
 
 - Fragenablauf im Skill konkretisiert: fehlende Angaben nur bei tatsächlichem Entscheidungsbedarf erfragen; keine routinemäßige Sechs-Fragen-Wand.
